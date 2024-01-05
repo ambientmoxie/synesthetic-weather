@@ -1,6 +1,6 @@
 export default {
   root: "src",
-  base: "/nice-view",
+  base: "/projects/nice-view",
   build: {
     outDir: "../dist",
     chunkSizeWarningLimit: 3000,
