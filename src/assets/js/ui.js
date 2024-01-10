@@ -35,9 +35,14 @@ const animateBackground = (windSpeed) => {
 
 const setGradientBackground = (weatherObject) => {
 
-  const colorTemperature = COLORS[Math.round(weatherObject.temperature)];
+  // Handle negative temperature
+  const temperatureIndex = weatherObject.temperature < 0 ? 0 : weatherObject.temperature;
+
+  const colorTemperature = COLORS[Math.round(temperatureIndex)];
   const colorWeather     = COLORS[Math.round(weatherObject.weather.length)];
   const colorWind        = COLORS[Math.round(weatherObject.windSpeed)];
+
+  console.log(colorTemperature);
 
   document.body.style.backgroundImage = `linear-gradient( to top, ${colorTemperature}, ${colorWeather}, ${colorWind}, ${colorTemperature})`;
 };
