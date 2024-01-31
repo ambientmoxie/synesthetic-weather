@@ -53,7 +53,7 @@ export const updateUI = (weatherObject) => {
   document.querySelector("#top-text").innerHTML =`<p>${weatherObject.city}</p><p>${weatherObject.temperature}° celcius</p><p>${weatherObject.weather}</p><p>wind ${weatherObject.windSpeed} mph</p><p>humidity ${weatherObject.humidity}%</p>`;
   document.querySelector(
     "#bottom-text"
-  ).innerText = `the color and the speed of the gradient was generated with these values`;
+  ).innerText = `THE COLOR AND THE SPEED OF THE GRADIENT WERE GENERATED USING THE VALUES BELOW`;
 
   animateBackground(weatherObject.windSpeed);
   setGradientBackground(weatherObject);
