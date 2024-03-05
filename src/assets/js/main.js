@@ -6,11 +6,11 @@ import {
   resizeText,
 } from "./ui";
 
-// API URL
 const BASE_URL = "https://api.openweathermap.org/data/2.5/weather";
 const overlay = document.getElementById("overlay-text");
-
-console.log(overlay);
+const modal = document.getElementById("modal");
+const submitBtn = document.querySelector("#modal__container button");
+const closeModal = document.getElementById("close-modal");
 
 // Api base configuration
 export const apiConfig = {
@@ -46,24 +46,43 @@ const createScene = () => {
       let weatherObject = transformWeatherData(resp);
       setGradientBackground(weatherObject);
       animateBackground(weatherObject.windSpeed);
-      // setUI(weatherObject);
+      setUI(weatherObject);
       resizeText(overlay);
     })
     .catch(console.error);
 };
 
+// Update composition
 const updateOnClick = (apiConfig) => {
-  document.getElementsByTagName("button")[0].addEventListener("click", () => {
-    apiConfig.zip = document.getElementById("zip").value;
-    createScene();
-  });
+  document
+    .querySelector("#modal__container button")
+    .addEventListener("click", () => {
+      const newZip = document.getElementById("zip").value;
+      if (newZip) {
+        apiConfig.zip = newZip;
+        createScene();
+      }
+    });
 };
 
-document.addEventListener("DOMContentLoaded", () => {
-  createScene();
-  // updateOnClick(apiConfig);
+// Hide and Display modal
+overlay.addEventListener("click", () => {
+  modal.style.display = "block";
 });
 
+closeModal.addEventListener("click", () => {
+  modal.style.display = "none";
+});
+
+submitBtn.addEventListener("click", () => {
+  modal.style.display = "none";
+});
+
+// First set up
+createScene();
+updateOnClick(apiConfig);
+
+// Update size of the text when window is resized
 window.addEventListener("resize", () => {
   resizeText(overlay);
 });

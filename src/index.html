@@ -8,32 +8,24 @@
   </head>
   <body>
     <header>
-      <div id="overlay-text">
-        In Paris it is 8° celcius, overcast clouds, wind 3.6 mph, humidity 77%.
-        The color and the speed of the gradient were generated using these values. Generate a new composition by clicking this button.
-      </div>
+      <div id="overlay-text"></div>
     </header>
-    <!-- <footer>
-      <div id="text-overlay"></div>
-      <div id="footer-left">
-        <div id="bottom-text"></div>
-        <div id="input-container">
-          <input
-            type="text"
-            id="zip"
-            required
-            minlength="5"
-            maxlength="5"
-            placeholder="enter zipcode*"
-          />
-        </div>
-        <button>submit</button>
+
+    <div id="modal">
+      <button id="close-modal"></button>
+      <div id="modal__container">
+        <input
+          type="text"
+          id="zip"
+          required
+          minlength="5"
+          maxlength="5"
+          placeholder="French zip code only"
+        />
+        <button>Submit</button>
       </div>
-      <div id="footer-right">
-        <p>*french zipcode only</p>
-        <p>Inspired by John Provencher</p>
-      </div>
-    </footer> -->
+    </div>
+
 
     <script type="module" src="./assets/js/main.js"></script>
   </body>

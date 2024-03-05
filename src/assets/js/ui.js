@@ -45,12 +45,9 @@ export const setGradientBackground = (weatherObject) => {
 
 // Set the text
 export const setUI = (weatherObject) => {
-  document.querySelector(
-    "#top-text"
-  ).innerHTML = `<p>${weatherObject.city}</p><p>${weatherObject.temperature}° celcius</p><p>${weatherObject.weather}</p><p>wind ${weatherObject.windSpeed} mph</p><p>humidity ${weatherObject.humidity}%</p>`;
-  document.querySelector(
-    "#bottom-text"
-  ).innerText = `THE COLOR AND THE SPEED OF THE GRADIENT WERE GENERATED USING THE VALUES BELOW`;
+  document.querySelector("#overlay-text").innerHTML = `
+    In ${weatherObject.city} it is ${weatherObject.temperature}° celcius, ${weatherObject.weather}, wind ${weatherObject.windSpeed} mph, humidity ${weatherObject.humidity}%. The color and the speed of the gradient were generated using these
+    values. Enter a new location by clicking the text to create a new composition.`;
 };
 
 export const resizeText = (el) => {
