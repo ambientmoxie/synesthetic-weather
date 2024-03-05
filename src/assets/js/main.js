@@ -1,8 +1,16 @@
 import "../scss/style.scss";
-import { animateBackground, setGradientBackground, setUI } from "./ui";
+import {
+  animateBackground,
+  setGradientBackground,
+  setUI,
+  resizeText,
+} from "./ui";
 
 // API URL
 const BASE_URL = "https://api.openweathermap.org/data/2.5/weather";
+const overlay = document.getElementById("overlay-text");
+
+console.log(overlay);
 
 // Api base configuration
 export const apiConfig = {
@@ -38,7 +46,8 @@ const createScene = () => {
       let weatherObject = transformWeatherData(resp);
       setGradientBackground(weatherObject);
       animateBackground(weatherObject.windSpeed);
-      setUI(weatherObject);
+      // setUI(weatherObject);
+      resizeText(overlay);
     })
     .catch(console.error);
 };
@@ -52,5 +61,9 @@ const updateOnClick = (apiConfig) => {
 
 document.addEventListener("DOMContentLoaded", () => {
   createScene();
-  updateOnClick(apiConfig);
+  // updateOnClick(apiConfig);
+});
+
+window.addEventListener("resize", () => {
+  resizeText(overlay);
 });

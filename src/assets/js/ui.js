@@ -1,6 +1,7 @@
 import { COLORS, remap } from "./utils";
 let currentBackgroundPosition = 0;
 let animationFrameId;
+import textFit from "textfit";
 
 // Animate background position
 export const animateBackground = (windSpeed) => {
@@ -52,15 +53,10 @@ export const setUI = (weatherObject) => {
   ).innerText = `THE COLOR AND THE SPEED OF THE GRADIENT WERE GENERATED USING THE VALUES BELOW`;
 };
 
-// Create the whole composition
-export const updateUI = (weatherObject) => {
-  setGradientBackground(weatherObject);
-  // animateBackground(weatherObject.windSpeed);
-
-  document.querySelector(
-    "#top-text"
-  ).innerHTML = `<p>${weatherObject.city}</p><p>${weatherObject.temperature}° celcius</p><p>${weatherObject.weather}</p><p>wind ${weatherObject.windSpeed} mph</p><p>humidity ${weatherObject.humidity}%</p>`;
-  document.querySelector(
-    "#bottom-text"
-  ).innerText = `THE COLOR AND THE SPEED OF THE GRADIENT WERE GENERATED USING THE VALUES BELOW`;
+export const resizeText = (el) => {
+  textFit(el, {
+    minFontSize: 16,
+    maxFontSize: 9999,
+    multiLine: true,
+  });
 };

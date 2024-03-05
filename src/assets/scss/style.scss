@@ -20,8 +20,8 @@ $media-max: 800px;
 
   --global-margin: 2rem;
   --global-color: black;
-  --font-size: 2.3rem;
-  --font-family: "IM", system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --font-size: 6rem;
+  --font-family: Arial, sans-serif;
 
   @media (min-width: $media-min) and (max-width: $media-max) {
     --font-size: 2rem;
@@ -41,13 +41,13 @@ body {
   font-family: var(--font-family);
   color: var(--global-color);
   font-size: var(--font-size);
-  text-transform: uppercase;
+  // text-transform: uppercase;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding: var(--global-margin);
-  letter-spacing: -1.5px;
-  line-height: 0.9;
+  // letter-spacing: -1.5px;
+  line-height: 0.98;
 }
 
 p {
@@ -159,4 +159,17 @@ button {
 
 form {
   font-size: 0;
+}
+
+#overlay-text {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  inset: 0;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  padding: 0.25em 0.5em 0.5em;
+  mix-blend-mode: difference;
+  color: white;
 }
