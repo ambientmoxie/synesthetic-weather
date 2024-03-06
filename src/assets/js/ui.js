@@ -5,7 +5,7 @@ import textFit from "textfit";
 
 // Animate background position
 export const animateBackground = (windSpeed) => {
-  //! TODO: Find a better way to control windspeed value
+  //! TODO: Rewrite this
 
   let windSpeedRemap = remap(windSpeed, 0, 200, 0, 60);
   if (window.innerWidth < 800) {
@@ -21,6 +21,7 @@ export const animateBackground = (windSpeed) => {
     cancelAnimationFrame(animationFrameId);
   }
 
+  // Recursive animation function
   const animate = () => {
     currentBackgroundPosition += windSpeedRemap;
     document.body.style.backgroundPosition = `0px ${currentBackgroundPosition}px`;
@@ -50,6 +51,7 @@ export const setUI = (weatherObject) => {
     values. Enter a new location by clicking the text to create a new composition.`;
 };
 
+// Fit the text inside the viewport
 export const resizeText = (el) => {
   textFit(el, {
     minFontSize: 16,
