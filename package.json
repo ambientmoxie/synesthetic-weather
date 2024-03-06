@@ -1,6 +1,6 @@
 {
-  "name": "gradient-weather",
-  "description": "gradient weather animation experiment",
+  "name": "synesthetic-weather",
+  "description": "A gradient composition created from weather data fetched from a weather data API. The user can change the zip code to alter the entire composition and its animation.",
   "private": true,
   "version": "0.0.0",
   "type": "module",

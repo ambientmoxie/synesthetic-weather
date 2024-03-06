@@ -1,6 +1,6 @@
 export default {
   root: "src",
-  base: "/projects/nice-view",
+  base: "/projects/synesthetic-weather",
   build: {
     outDir: "../dist",
     chunkSizeWarningLimit: 3000,
